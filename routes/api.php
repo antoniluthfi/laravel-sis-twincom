@@ -32,6 +32,7 @@ use App\Http\Controllers\Api\PengajuanPembelianBarangSecondController;
 use App\Http\Controllers\Api\LogAktivitasController;
 use App\Http\Controllers\Api\NotifikasiController;
 use App\Http\Controllers\Api\ReviewKepuasanPelangganController;
+use App\Http\Controllers\Api\RMAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -159,6 +160,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('sandi-transaksi', [SandiTransaksiController::class, 'create']);
     Route::put('sandi-transaksi/{id}', [SandiTransaksiController::class, 'update']);
     Route::delete('sandi-transaksi/{id}', [SandiTransaksiController::class, 'delete']);
+
+    Route::get('rma', [RMAController::class, 'index']);
+    Route::get('rma/{id}', [RMAController::class, 'getDataById']);
+    Route::post('rma', [RMAController::class, 'create']);
+    Route::put('rma/{id}', [RMAController::class, 'update']);
+    Route::delete('rma/{id}', [RMAController::class, 'delete']);
 
     Route::get('penerimaan-barang', [PenerimaanBarangController::class, 'index']);
     Route::get('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'getDataById']);
