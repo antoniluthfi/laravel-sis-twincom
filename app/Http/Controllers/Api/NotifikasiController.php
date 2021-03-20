@@ -64,19 +64,17 @@ class NotifikasiController extends Controller
     public function create(Request $request)
     {
         $input = $request->all();
-        if($request->hak_akses === 'teknisi') {
-            if(strpos($request->user_id, ',')) {
-                $teknisi = explode(',', $request->user_id);
-    
-                for ($i = 0; $i < count($teknisi); $i++) { 
-                    $id_teknisi = User::where('name', $teknisi[$i])->first();
+        if(strpos($request->user_id, ',')) {
+            $teknisi = explode(',', $request->user_id);
 
-                    $input['user_id'] = $id_teknisi['id'];
-                    $notifikasi = Notifikasi::create($input);
-                }
-            } else {
+            for ($i = 0; $i < count($teknisi); $i++) { 
+                $id_teknisi = User::where('name', $teknisi[$i])->first();
+
+                $input['user_id'] = $id_teknisi['id'];
                 $notifikasi = Notifikasi::create($input);
             }
+        } else {
+            $notifikasi = Notifikasi::create($input);
         }
 
         return response()->json([
