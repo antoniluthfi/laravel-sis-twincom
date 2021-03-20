@@ -16,7 +16,7 @@ class RMAController extends Controller
         ], 200);
     }
 
-    public function getById($id)
+    public function getDataById($id)
     {
         $rma = RMA::find($id);
 
