@@ -11,6 +11,6 @@ class RMA extends Model
 
     protected $table = 'rma';
     protected $fillable = [
-        'nama'
+        'name'
     ];
 }
