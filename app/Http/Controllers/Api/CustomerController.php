@@ -13,13 +13,13 @@ class CustomerController extends Controller
     {
         return response()->json([
             'status' => 'OK',
-            'data' => Customer::all()
+            'data' => Customer::with('diskon')->get()
         ], 200);
     }
 
     public function getDataById($id)
     {
-        $customer = Customer::find($id);
+        $customer = Customer::with('diskon')->find($id);
         if($customer) {
             return response()->json([
                 'status' => 'OK',
@@ -35,7 +35,7 @@ class CustomerController extends Controller
 
     public function getDataByName($name)
     {
-        $customer = Customer::where('nama', $name)->first();
+        $customer = Customer::with('diskon')->where('nama', $name)->first();
         if($customer) {
             return response()->json([
                 'status' => 'OK',

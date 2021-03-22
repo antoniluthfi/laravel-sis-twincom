@@ -50,4 +50,9 @@ class Customer extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function diskon()
+    {
+        return $this->hasOne(Diskon::class, 'user_id', 'id');
+    }
 }

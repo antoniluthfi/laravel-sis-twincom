@@ -168,11 +168,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('rma/{id}', [RMAController::class, 'update']);
     Route::delete('rma/{id}', [RMAController::class, 'delete']);
 
-    Route::get('user-diskon', [DiskonController::class, 'index']);
-    Route::get('user-diskon/{id}', [DiskonController::class, 'getDataById']);
-    Route::post('user-diskon', [DiskonController::class, 'create']);
-    Route::put('user-diskon/{id}', [DiskonController::class, 'update']);
-    Route::delete('user-diskon/{id}', [DiskonController::class, 'delete']);
+    Route::get('customer-diskon', [DiskonController::class, 'index']);
+    Route::get('customer-diskon/{id}', [DiskonController::class, 'getDataById']);
+    Route::post('customer-diskon', [DiskonController::class, 'create']);
+    Route::put('customer-diskon/{id}', [DiskonController::class, 'update']);
+    Route::delete('customer-diskon/{id}', [DiskonController::class, 'delete']);
 
     Route::get('penerimaan-barang', [PenerimaanBarangController::class, 'index']);
     Route::get('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'getDataById']);
