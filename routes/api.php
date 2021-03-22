@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\LogAktivitasController;
 use App\Http\Controllers\Api\NotifikasiController;
 use App\Http\Controllers\Api\ReviewKepuasanPelangganController;
 use App\Http\Controllers\Api\RMAController;
+use App\Http\Controllers\Api\DiskonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,6 +167,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('rma', [RMAController::class, 'create']);
     Route::put('rma/{id}', [RMAController::class, 'update']);
     Route::delete('rma/{id}', [RMAController::class, 'delete']);
+
+    Route::get('user-diskon', [DiskonController::class, 'index']);
+    Route::get('user-diskon/{id}', [DiskonController::class, 'getDataById']);
+    Route::post('user-diskon', [DiskonController::class, 'create']);
+    Route::put('user-diskon/{id}', [DiskonController::class, 'update']);
+    Route::delete('user-diskon/{id}', [DiskonController::class, 'delete']);
 
     Route::get('penerimaan-barang', [PenerimaanBarangController::class, 'index']);
     Route::get('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'getDataById']);

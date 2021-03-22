@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         return response()->json([
             'status' => 'OK', 
-            'data' => User::with('cabang')->get()
+            'data' => User::with('cabang', 'diskon')->get()
         ], 200);
     }
 
@@ -25,6 +25,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user['cabang'] = Auth::user()->cabang;
+        $user['diskon'] = Auth::user()->diskon;
         return response()->json([
             'status' => 'OK', 
             'data' => $user
@@ -47,7 +48,7 @@ class UserController extends Controller
 
     public function getUserById($id)
     {
-        $user = User::with('cabang')->find($id);
+        $user = User::with('cabang', 'diskon')->find($id);
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -56,7 +57,7 @@ class UserController extends Controller
 
     public function getUserByName($name)
     {
-        $user = User::with('cabang')->where('name', $name)->first();
+        $user = User::with('cabang', 'diskon')->where('name', $name)->first();
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -65,7 +66,7 @@ class UserController extends Controller
 
     public function getUserByRole($role)
     {
-        $user = User::with('cabang')->where('jabatan', $role)->get();
+        $user = User::with('cabang', 'diskon')->where('jabatan', $role)->get();
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -74,7 +75,7 @@ class UserController extends Controller
 
     public function getUserByRoleAndCabang($role, $cabang)
     {
-        $user = User::with('cabang')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
+        $user = User::with('cabang', 'diskon')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
         return response()->json([
             'status' => 'OK',
             'data' => $user
