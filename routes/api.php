@@ -8,7 +8,6 @@ use App\Http\Controllers\Api\BarangJasaController;
 use App\Http\Controllers\Api\MerekController;
 use App\Http\Controllers\Api\TipeController;
 use App\Http\Controllers\Api\KondisiController;
-use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\PartnerController;
 use App\Http\Controllers\Api\CabangController;
 use App\Http\Controllers\Api\StikerController;
@@ -100,15 +99,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('kondisi', [KondisiController::class, 'create']);
     Route::put('kondisi/{id}', [KondisiController::class, 'update']);
     Route::delete('kondisi/{id}', [KondisiController::class, 'delete']);
-
-    Route::get('customer', [CustomerController::class, 'index']);
-    Route::get('customer/{id}', [CustomerController::class, 'getDataById']);
-    Route::get('customer/name/{name}', [CustomerController::class, 'getDataByName']);
-    Route::get('customer/like/{keyword}', [CustomerController::class, 'getDataBasedOnKeyword']);
-    Route::get('customer/my/profile', [CustomerController::class, 'getCurrentUser']);
-    Route::post('customer', [CustomerController::class, 'create']);
-    Route::put('customer/{id}', [CustomerController::class, 'update']);
-    Route::delete('customer/{id}', [CustomerController::class, 'delete']);
 
     Route::get('partner', [PartnerController::class, 'index']);
     Route::get('partner/{id}', [PartnerController::class, 'getDataById']);

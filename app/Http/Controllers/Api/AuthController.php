@@ -10,7 +10,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use App\Models\User;
-use App\Models\Customer;
 use Validator;
 
 class AuthController extends Controller
@@ -20,7 +19,8 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status_akun' => 1])) {
-            $user = Auth::user();                
+            $user = Auth::user(); 
+            $success = [];               
             $success['user'] = $user;
             $success['token'] = $user->createToken('sis', ['karyawan'])->accessToken;
 
@@ -81,9 +81,6 @@ class AuthController extends Controller
     {
         require base_path("vendor/autoload.php");
         $user = User::where('email', $request->email)->first();
-        if(!$user) {
-            $user = Customer::where('email', $request->email)->first();
-        }
 
         $mail = new PHPMailer(true);     
 

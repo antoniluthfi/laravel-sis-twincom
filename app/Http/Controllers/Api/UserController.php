@@ -66,7 +66,14 @@ class UserController extends Controller
 
     public function getUserByRole($role)
     {
-        $user = User::with('cabang', 'diskon')->where('jabatan', $role)->get();
+        if($role == 'customer') {
+            $user = User::with('cabang', 'diskon')->where('jabatan', 'user')
+                                                ->orWhere('jabatan', 'reseller')
+                                                ->get();
+        } else {
+            $user = User::with('cabang', 'diskon')->where('jabatan', $role)->get();
+        }
+
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -75,7 +82,15 @@ class UserController extends Controller
 
     public function getUserByRoleAndCabang($role, $cabang)
     {
-        $user = User::with('cabang', 'diskon')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
+        if($role == 'customer') {
+            $user = User::with('cabang', 'diskon')->where('jabatan', 'user')
+                                                ->orWhere('jabatan', 'reseller')
+                                                ->where('cab_penempatan', $cabang)
+                                                ->get();
+        } else {
+            $user = User::with('cabang', 'diskon')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
+        }
+
         return response()->json([
             'status' => 'OK',
             'data' => $user
