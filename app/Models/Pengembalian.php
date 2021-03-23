@@ -20,7 +20,8 @@ class Pengembalian extends Model
         'status_pembayaran',
         'shift',
         'cabang',
-        'nominal'
+        'nominal',
+        'diskon'
     ];
 
     public function penerimaan()

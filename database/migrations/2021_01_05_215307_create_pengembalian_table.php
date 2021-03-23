@@ -23,6 +23,7 @@ class CreatePengembalianTable extends Migration
             $table->boolean('shift')->default(false);
             $table->string('cabang');
             $table->double('nominal', 15, 0)->default(0);
+            $table->boolean('diskon')->default(0);
             $table->boolean('status_pengembalian')->default(false);
             $table->timestamps();
         });
