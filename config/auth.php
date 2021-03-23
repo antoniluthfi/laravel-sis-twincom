@@ -46,17 +46,6 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-
-        'customer' => [
-            'driver' => 'session',
-            'provider' => 'customer',
-        ],
-
-        'customer-api' => [
-            'driver' => 'passport',
-            'provider' => 'customer',
-            'hash' => false,
-        ],
     ],
 
     /*
@@ -80,11 +69,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],
-
-        'customer' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Customer::class,
         ],
 
         // 'users' => [

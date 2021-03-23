@@ -19,34 +19,18 @@ class AuthController extends Controller
     
     public function login(Request $request)
     {
-        if($request->role === 'user') {
-            if(Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password, 'status_akun' => 1])) {
-                $user = Auth::guard('web')->user();                
-                $success['user'] = $user;
-                $success['token'] = $user->createToken('sis', ['karyawan'])->accessToken;
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status_akun' => 1])) {
+            $user = Auth::user();                
+            $success['user'] = $user;
+            $success['token'] = $user->createToken('sis', ['karyawan'])->accessToken;
 
-                return response()->json([
-                    'success' => $success, 
-                ], $this->successStatus);
-            } else {
-                return response()->json([
-                    'error' => 'unauthorized'
-                ], 401);
-            }
-        } elseif($request->role === 'customer') {
-            if(Auth::guard('customer')->attempt(['email' => $request->email, 'password' => $request->password, 'status_akun' => 1])) {
-                $user = Auth::guard('customer')->user();
-                $success['token'] = $user->createToken('sis', ['customer'])->accessToken;
-                $success['user'] = $user;
-    
-                return response()->json([
-                    'success' => $success, 
-                ], $this->successStatus);
-            } else {
-                return response()->json([
-                    'error' => 'unauthorized'
-                ], 401);
-            }
+            return response()->json([
+                'success' => $success, 
+            ], $this->successStatus);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
         }
     } 
 
