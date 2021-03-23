@@ -59,7 +59,7 @@ class PenerimaanBarang extends Model
 
     public function teknisi()
     {
-        return $this->hasMany(TeknisiPj::class, 'no_service', 'no_service_penerimaan')->with('teknisi');
+        return $this->hasMany(TeknisiPj::class, 'no_service', 'no_service_penerimaan')->select('no_service', 'id_teknisi')->with('teknisi');
     }
 
     public function list_kelengkapan()

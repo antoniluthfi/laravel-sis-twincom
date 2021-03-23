@@ -69,7 +69,7 @@ class ReviewKepuasanPelangganController extends Controller
                     $review = ReviewKepuasanPelanggan::create($input);
                 }
             } else {
-                $user = User::select('id')->where('name', $user_id[$i])->first();
+                $user = User::select('id')->where('name', $request->user_id)->first();
                 $input['user_id'] = $user['id'];
                 $review = ReviewKepuasanPelanggan::create($input);
             }
@@ -77,7 +77,7 @@ class ReviewKepuasanPelangganController extends Controller
             return response()->json([
                 'status' => 'OK',
                 'message' => 'Data berhasil ditambahkan',
-                'data' => $review
+                'data' => $request->user_id
             ], 200);
         } else {
             return response()->json([
