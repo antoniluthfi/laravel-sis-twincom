@@ -133,9 +133,9 @@ class CetakLaporanController extends Controller
             pengerjaan.status_pengerjaan, 
             partner.nama AS partner, 
             (SELECT users.name FROM users WHERE users.id = penerimaan_barang.id_admin) AS admin, 
-            (SELECT customer.nama FROM customer WHERE customer.id = penerimaan_barang.id_customer) AS customer, 
-            (SELECT customer.nomorhp FROM customer WHERE customer.id = penerimaan_barang.id_customer) AS customer_nomorhp, 
-            (SELECT customer.id FROM customer WHERE customer.id = penerimaan_barang.id_customer) AS customer_id, 
+            (SELECT users.name FROM users WHERE users.id = penerimaan_barang.id_customer) AS customer, 
+            (SELECT users.nomorhp FROM users WHERE users.id = penerimaan_barang.id_customer) AS customer_nomorhp, 
+            (SELECT users.id FROM users WHERE users.id = penerimaan_barang.id_customer) AS customer_id, 
             (SELECT users.name FROM users WHERE users.id = teknisi_pj.id_teknisi) AS teknisi, 
             (SELECT barang_jasa.nama_bj FROM barang_jasa WHERE barang_jasa.id = penerimaan_barang.id_bj) AS barang_jasa, 
             (SELECT cabang.nama_cabang FROM cabang WHERE cabang.id = penerimaan_barang.id_cabang) AS cabang FROM penerimaan_barang 

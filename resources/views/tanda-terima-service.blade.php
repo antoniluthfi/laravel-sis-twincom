@@ -85,32 +85,28 @@ $now = date("d-m-Y");
         <div class="float-left" style="width: 13%;">
             @if ($data->jenis_penerimaan === 'Jasa Lain-lain')
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang Jasa</p>
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Jasa</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kelengkapan</p> 
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Request</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Nama Barang</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang Jasa</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Request</p>
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kelengkapan</p>   
-                <p class="lead ml-2 mt-0 mb-2" style="font-weight: bold; letter-spacing: 1.5px;">Segel Toko</p>            
             @endif
 
             @if ($data->jenis_penerimaan === 'Penerimaan Barang Service')
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Nama Barang</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang Jasa</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Problem</p>
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Request</p>
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang</p>
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Problem / Request</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Data Penting</p>                
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kondisi</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Serial Number</p>
-                <p class="lead ml-2 mt-0 mb-2" style="font-weight: bold; letter-spacing: 1.5px;">Segel Toko</p>            
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kelengkapan</p>   
             @endif
         </div>
 
@@ -119,30 +115,26 @@ $now = date("d-m-Y");
                 <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>     
-                <p class="lead ml-2 mt-0 mb-0">: {{ ucwords($data->permintaan) }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
+                <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan == null ? '-' : $data->keterangan }}</p>
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
                 <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->merek . ' '. $data->tipe }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ ucwords($data->permintaan) }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>          
-                <p class="lead ml-2 mt-0 mb-2">:</p>            
             @endif
 
             @if ($data->jenis_penerimaan === 'Penerimaan Barang Service')
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->merek . ' '. $data->tipe }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ $data->problem }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ ucwords($data->permintaan) }}</p>
+                <p class="lead ml-2 mt-0 mb-0">: {{ ucwords($data->problem) }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data_penting }}</p>                
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->kondisi }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->sn }}</p>
-                <p class="lead ml-2 mt-0 mb-2">:</p>            
+                <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>          
             @endif
         </div>
     </div>
@@ -172,12 +164,12 @@ $now = date("d-m-Y");
             
             <div class="float-left" style="width: 32%">
                 <p class="lead text-center mt-0 mb-5">Diserahkan</p>
-                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->customer) }}</p>
+                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->admin) }}</p>
             </div>
-
+            
             <div class="float-left" style="width: 32%">
                 <p class="lead text-center mt-0 mb-5">Diterima</p>
-                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->admin) }}</p>
+                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->customer) }}</p>
             </div>
 
             <div class="float-left" style="width: 32%">

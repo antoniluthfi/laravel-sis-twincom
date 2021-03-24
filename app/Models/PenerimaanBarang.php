@@ -49,7 +49,7 @@ class PenerimaanBarang extends Model
 
     public function customer()
     {
-        return $this->hasOne(Customer::class, 'id', 'id_customer')->select('id', 'nama', 'nomorhp', 'email')->with('diskon');
+        return $this->hasOne(User::class, 'id', 'id_customer')->select('id', 'name', 'nomorhp', 'email')->with('diskon');
     }
 
     public function admin()
