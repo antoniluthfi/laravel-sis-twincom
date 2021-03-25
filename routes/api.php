@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\NotifikasiController;
 use App\Http\Controllers\Api\ReviewKepuasanPelangganController;
 use App\Http\Controllers\Api\RMAController;
 use App\Http\Controllers\Api\DiskonController;
+use App\Http\Controllers\Api\OneSignalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('forgot-password', [AuthController::class, 'forgotPassword']);
 Route::get('user/my/profile/enc/{id}', [UserController::class, 'getCurrentEncryptedUser']);
 Route::put('user/reset-password/{id}', [UserController::class, 'resetPassword']);
+Route::post('onesignal', [OneSignalController::class, 'create']);
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('user', [UserController::class, 'index']);
