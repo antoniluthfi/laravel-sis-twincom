@@ -55,9 +55,10 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('forgot-password', [AuthController::class, 'forgotPassword']);
 Route::get('user/my/profile/enc/{id}', [UserController::class, 'getCurrentEncryptedUser']);
 Route::put('user/reset-password/{id}', [UserController::class, 'resetPassword']);
-Route::post('onesignal', [OneSignalController::class, 'create']);
 
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::post('onesignal', [OneSignalController::class, 'create']);
+
     Route::get('user', [UserController::class, 'index']);
     Route::get('user/{id}', [UserController::class, 'getUserById']);
     Route::get('user/name/{name}', [UserController::class, 'getUserByName']);
