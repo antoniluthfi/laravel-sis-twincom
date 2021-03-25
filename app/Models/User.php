@@ -50,6 +50,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function onesignal()
+    {
+        return $this->hasOne(OneSignal::class, 'user_id', 'id');
+    }
+
     public function cabang()
     {
         return $this->hasOne(Cabang::class, 'nama_cabang', 'cab_penempatan')->select('id', 'nama_cabang', 'alamat');

@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         return response()->json([
             'status' => 'OK', 
-            'data' => User::with('cabang', 'diskon')->get()
+            'data' => User::with('cabang', 'diskon', 'onesignal')->get()
         ], 200);
     }
 
