@@ -10,12 +10,12 @@ class OneSignalController extends Controller
     public function create(Request $request)
     {
         $input = $request->all();
-        $oensignal = OneSignal::create($input);
+        $onesignal = OneSignal::create($input);
 
         return response()->json([
             'status' => 'OK',
             'message' => 'Data berhasil ditambahkan',
-            'data' => $oensignal
+            'data' => $onesignal
         ], 200);
     }
 }
