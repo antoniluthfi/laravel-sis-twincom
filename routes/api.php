@@ -32,7 +32,7 @@ use App\Http\Controllers\Api\LogAktivitasController;
 use App\Http\Controllers\Api\NotifikasiController;
 use App\Http\Controllers\Api\ReviewKepuasanPelangganController;
 use App\Http\Controllers\Api\RMAController;
-use App\Http\Controllers\Api\DiskonController;
+use App\Http\Controllers\Api\MemberController;
 use App\Http\Controllers\Api\OneSignalController;
 
 /*
@@ -162,11 +162,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('rma/{id}', [RMAController::class, 'update']);
     Route::delete('rma/{id}', [RMAController::class, 'delete']);
 
-    Route::get('customer-diskon', [DiskonController::class, 'index']);
-    Route::get('customer-diskon/{id}', [DiskonController::class, 'getDataById']);
-    Route::post('customer-diskon', [DiskonController::class, 'create']);
-    Route::put('customer-diskon/{id}', [DiskonController::class, 'update']);
-    Route::delete('customer-diskon/{id}', [DiskonController::class, 'delete']);
+    Route::get('customer-member', [MemberController::class, 'index']);
+    Route::get('customer-member/{id}', [MemberController::class, 'getDataById']);
+    Route::post('customer-member', [MemberController::class, 'create']);
+    Route::put('customer-member/{id}', [MemberController::class, 'update']);
+    Route::delete('customer-member/{id}', [MemberController::class, 'delete']);
 
     Route::get('penerimaan-barang', [PenerimaanBarangController::class, 'index']);
     Route::get('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'getDataById']);
