@@ -82,16 +82,17 @@ $now = date("d-m-Y");
     <div class="border mt-1" style="width: 100%; height: 173px;">
         <h1 class="display-6 text-center mt-1 mb-1" style="font-weight: bold; letter-spacing: 1.5px;">INFORMASI PENERIMAAN BARANG</h1>
 
-        <div class="float-left" style="width: 13%;">
+        <div class="float-left" style="width: 15%;">
+            <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
+            <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">No Faktur Penjualan</p>
+
             @if ($data->jenis_penerimaan === 'Jasa Lain-lain')
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Jasa</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kelengkapan</p> 
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
-                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Nama Barang</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
@@ -110,16 +111,17 @@ $now = date("d-m-Y");
             @endif
         </div>
 
-        <div class="float-right" style="width: 87%;">
+        <div class="float-right" style="width: 85%;">
+            <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
+            <p class="lead ml-2 mt-0 mb-0">: {{ $data->no_faktur_penjualan }}</p>
+
             @if ($data->jenis_penerimaan === 'Jasa Lain-lain')
-                <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>     
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan == null ? '-' : $data->keterangan }}</p>
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
-                <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->merek . ' '. $data->tipe }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
@@ -155,8 +157,8 @@ $now = date("d-m-Y");
 
     <div class="border mt-1" style="width: 100%;">
         <div class="float-left mb-0 pb-1" style="width: 59%;">
-            <p class="lead ml-2 mt-6 mb-0">Bila Anda Kecewa</p>
-            <p class="lead ml-2 mt-0 mb-2">Pengguna Sistem</p>
+            <p class="lead ml-2 mt-6 mb-0">Bila Anda Kecewa : 081347992722 / 08125042742</p>
+            {{-- <p class="lead ml-2 mt-0 mb-2">Pengguna Sistem : </p> --}}
         </div>
 
         <div class="float-right mt-0" style="width: 40%;">

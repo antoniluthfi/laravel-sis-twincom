@@ -57,6 +57,7 @@ Route::get('user/my/profile/enc/{id}', [UserController::class, 'getCurrentEncryp
 Route::put('user/reset-password/{id}', [UserController::class, 'resetPassword']);
 
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('onesignal/{id}', [OneSignalController::class, 'getDataByUserId']);
     Route::post('onesignal', [OneSignalController::class, 'create']);
 
     Route::get('user', [UserController::class, 'index']);

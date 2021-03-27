@@ -178,8 +178,8 @@ $now = date("d m Y");
 
         <div class="border mt-1" style="width: 100%;">
             <div class="float-left mb-0 pb-1" style="width: 59%;">
-                <p class="lead ml-2 mt-6 mb-0">Bila Anda Kecewa</p>
-                <p class="lead ml-2 mt-0 mb-2">Pengguna Sistem</p>
+                <p class="lead ml-2 mt-6 mb-0">Bila Anda Kecewa : 081347992722 / 08125042742</p>
+                {{-- <p class="lead ml-2 mt-0 mb-2">Pengguna Sistem : </p> --}}
             </div>
 
             <div class="float-right mt-0" style="width: 40%;">
@@ -187,12 +187,12 @@ $now = date("d m Y");
                 
                 <div class="float-left" style="width: 32%">
                     <p class="lead text-center mt-0 mb-5">Diserahkan</p>
-                    <p class="lead text-center mt-0 mb-1">{{ ucwords($data->penerimaan->customer->nama) }}</p>
+                    <p class="lead text-center mt-0 mb-1">{{ ucwords($data->penerimaan->admin->name) }}</p>
                 </div>
 
                 <div class="float-left" style="width: 32%">
                     <p class="lead text-center mt-0 mb-5">Diterima</p>
-                    <p class="lead text-center mt-0 mb-1">{{ $data->penerimaan->admin->name }}</p>
+                    <p class="lead text-center mt-0 mb-1">{{ $data->penerimaan->customer->name }}</p>
                 </div>
 
                 <div class="float-left" style="width: 32%">

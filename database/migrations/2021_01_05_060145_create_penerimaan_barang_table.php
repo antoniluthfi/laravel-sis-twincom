@@ -15,6 +15,7 @@ class CreatePenerimaanBarangTable extends Migration
     {
         Schema::create('penerimaan_barang', function (Blueprint $table) {
             $table->id('no_service_penerimaan');
+            $table->string('no_faktur_penjualan')->nullable();
             $table->string('jenis_penerimaan', 50);
             $table->foreignId('id_cabang');
             $table->foreignId('id_customer');

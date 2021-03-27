@@ -12,6 +12,7 @@ class PenerimaanBarang extends Model
     protected $table = 'penerimaan_barang';
     protected $primaryKey = 'no_service_penerimaan';
     protected $fillable = [
+        'no_faktur_penjualan',
         'jenis_penerimaan',
         'id_customer',
         'id_cabang',
