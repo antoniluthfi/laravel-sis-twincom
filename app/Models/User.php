@@ -60,9 +60,9 @@ class User extends Authenticatable
         return $this->hasOne(Cabang::class, 'nama_cabang', 'cab_penempatan')->select('id', 'nama_cabang', 'alamat');
     }
 
-    public function diskon()
+    public function member()
     {
-        return $this->hasOne(Diskon::class, 'user_id', 'id');
+        return $this->hasOne(Member::class, 'user_id', 'id');
     }
 
     public function OauthAcessToken() 

@@ -15,8 +15,8 @@ class CreateMemberTable extends Migration
     {
         Schema::create('member', function (Blueprint $table) {
             $table->foreignId('user_id');
-            $table->string('diskon');
-            $table->integer('poin');
+            $table->string('diskon')->nullable();
+            $table->integer('poin')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

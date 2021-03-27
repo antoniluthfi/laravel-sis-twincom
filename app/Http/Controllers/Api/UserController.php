@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         return response()->json([
             'status' => 'OK', 
-            'data' => User::with('cabang', 'diskon', 'onesignal')->get()
+            'data' => User::with('cabang', 'member', 'onesignal')->get()
         ], 200);
     }
 
@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user['cabang'] = Auth::user()->cabang;
-        $user['diskon'] = Auth::user()->diskon;
+        $user['member'] = Auth::user()->member;
         return response()->json([
             'status' => 'OK', 
             'data' => $user
@@ -48,7 +48,7 @@ class UserController extends Controller
 
     public function getUserById($id)
     {
-        $user = User::with('cabang', 'diskon')->find($id);
+        $user = User::with('cabang', 'member')->find($id);
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function getUserByName($name)
     {
-        $user = User::with('cabang', 'diskon')->where('name', $name)->first();
+        $user = User::with('cabang', 'member')->where('name', $name)->first();
         return response()->json([
             'status' => 'OK',
             'data' => $user
@@ -67,11 +67,11 @@ class UserController extends Controller
     public function getUserByRole($role)
     {
         if($role == 'customer') {
-            $user = User::with('cabang', 'diskon')->where('jabatan', 'user')
+            $user = User::with('cabang', 'member')->where('jabatan', 'user')
                                                 ->orWhere('jabatan', 'reseller')
                                                 ->get();
         } else {
-            $user = User::with('cabang', 'diskon')->where('jabatan', $role)->get();
+            $user = User::with('cabang', 'member')->where('jabatan', $role)->get();
         }
 
         return response()->json([
@@ -83,12 +83,12 @@ class UserController extends Controller
     public function getUserByRoleAndCabang($role, $cabang)
     {
         if($role == 'customer') {
-            $user = User::with('cabang', 'diskon')->where('jabatan', 'user')
+            $user = User::with('cabang', 'member')->where('jabatan', 'user')
                                                 ->orWhere('jabatan', 'reseller')
                                                 ->where('cab_penempatan', $cabang)
                                                 ->get();
         } else {
-            $user = User::with('cabang', 'diskon')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
+            $user = User::with('cabang', 'member')->where(['jabatan' => $role, 'cab_penempatan' => $cabang])->get();
         }
 
         return response()->json([
