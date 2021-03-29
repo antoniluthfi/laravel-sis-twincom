@@ -118,12 +118,10 @@ class PengembalianController extends Controller
 
     public function deleteByNoService($no_service)
     {
-        $pengembalian = Pengembalian::where('no_service', $no_service)->get();
-        for ($i = 0; $i < count($pengembalian); $i++) { 
-            $pengembalian[$i]->delete();
-        }
-
+        $pengembalian = Pengembalian::where('no_service', $no_service)->first();
+        
         if($pengembalian) {
+            $pengembalian->delete();
             return response()->json([
                 'status' => 'OK',
                 'message' => 'Data berhasil dihapus'

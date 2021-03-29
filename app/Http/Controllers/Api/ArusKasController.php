@@ -152,8 +152,10 @@ class ArusKasController extends Controller
 
     public function deleteForPengembalian($no_pengembalian)
     {
-        $arusKas = ArusKas::where('no_pengembalian', $no_pengembalian)->first();
-        $arusKas->delete();
+        $arusKas = ArusKas::where('no_pengembalian', $no_pengembalian)->get();
+        for ($i = 0; $i < count($arusKas); $i++) { 
+            $arusKas[$i]->delete();
+        }
         
         return response()->json([
             'status' => 'OK',
