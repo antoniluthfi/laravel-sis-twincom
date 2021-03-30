@@ -45,7 +45,7 @@ class PenerimaanBarang extends Model
 
     public function bj()
     {
-        return $this->hasOne(BarangJasa::class, 'id', 'id_bj')->select('id', 'nama_bj', 'jenis');
+        return $this->hasOne(BarangJasa::class, 'id', 'id_bj');
     }
 
     public function customer()

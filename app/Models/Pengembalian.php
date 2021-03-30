@@ -21,7 +21,8 @@ class Pengembalian extends Model
         'shift',
         'cabang',
         'nominal',
-        'diskon'
+        'diskon',
+        'diskon_kecewa',
     ];
 
     public function penerimaan()

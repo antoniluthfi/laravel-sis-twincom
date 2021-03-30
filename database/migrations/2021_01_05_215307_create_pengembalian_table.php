@@ -24,6 +24,7 @@ class CreatePengembalianTable extends Migration
             $table->string('cabang');
             $table->double('nominal', 15, 0)->default(0);
             $table->boolean('diskon')->default(0);
+            $table->string('diskon_kecewa')->nullable();
             $table->boolean('status_pengembalian')->default(false);
             $table->timestamps();
         });
