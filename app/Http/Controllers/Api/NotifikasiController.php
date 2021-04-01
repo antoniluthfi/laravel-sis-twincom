@@ -52,7 +52,7 @@ class NotifikasiController extends Controller
 
     public function getDataByRole($role)
     {
-        $notifikasi = Notifikasi::with('user')->where('hak_akses', $role)->get();
+        $notifikasi = Notifikasi::with('user')->where('hak_akses', $role)->orderBy('id', 'desc')->take(5)->get();
 
         return response()->json([
             'status' => 'OK',
@@ -63,24 +63,29 @@ class NotifikasiController extends Controller
 
     public function create(Request $request)
     {
-        $input = $request->all();
-        if(strpos($request->user_id, ',')) {
-            $teknisi = explode(',', $request->user_id);
+        $data = $request->all();
+        if(strpos($data['user_id'], ',')) {
+            $input = [];
+            $teknisi = explode(',', $data['user_id']);
 
             for ($i = 0; $i < count($teknisi); $i++) { 
-                $id_teknisi = User::where('name', $teknisi[$i])->first();
+                $result = User::where('name', $teknisi[$i])->first();
 
-                $input['user_id'] = $id_teknisi['id'];
+                $input['user_id'] = $result['id'];
+                $input['hak_akses'] = $result['jabatan'];
+                $input['keterangan'] = $request->keterangan;
                 $notifikasi = Notifikasi::create($input);
             }
         } else {
-            $notifikasi = Notifikasi::create($input);
+            $result = User::where('name', $data['user_id'])->first();
+            $data['user_id'] = $result['id'];
+            $notifikasi = Notifikasi::create($data);
         }
 
         return response()->json([
             'status' => 'OK',
             'message' => 'Data berhasil ditambahkan',
-            'data' => $notifikasi
+            'data' => $input
         ], 200);
     }
 }
