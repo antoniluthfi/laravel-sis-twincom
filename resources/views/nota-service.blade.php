@@ -79,7 +79,7 @@ $now = date("d m Y");
                 <div class="float-right" style="width: 56%;">
                     <p class="lead mt-1 mb-0">: {{ $no_service }}</p>
                     <p class="lead mt-0 mb-0">: {{ $data->penerimaan->id_customer }}</p>
-                    <p class="lead mt-0 mb-0">: {{ $data->penerimaan->customer->nama }}</p>
+                    <p class="lead mt-0 mb-0">: {{ ucwords($data->penerimaan->customer->name) }}</p>
                     <p class="lead mt-0 mb-1">: {{ $data->penerimaan->customer->nomorhp }}</p>
                 </div>
             </div>
@@ -197,7 +197,7 @@ $now = date("d m Y");
 
                 <div class="float-left" style="width: 32%">
                     <p class="lead text-center mt-0 mb-5">Administrasi</p>
-                    <p class="lead text-center mt-0 mb-1">{{ $data->admin->name }}</p>
+                    <p class="lead text-center mt-0 mb-1">{{ $data->penerimaan->admin->name }}</p>
                 </div>
             </div>
         </div>

@@ -31,6 +31,8 @@ class PengerjaanController extends Controller
             penerimaan_barang.permintaan, 
             penerimaan_barang.keterangan, 
             pengerjaan.status_pengerjaan,
+            pengerjaan.diskon,
+            pengerjaan.diskon_kecewa,
             (SELECT name FROM users WHERE teknisi_pj.id_teknisi = users.id) AS teknisi, 
             (SELECT name FROM users WHERE id = penerimaan_barang.id_customer) AS customer, 
             (SELECT nama FROM partner WHERE id = pengerjaan.id_partner) AS partner,
