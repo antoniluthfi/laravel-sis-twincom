@@ -15,6 +15,8 @@ class Pembayaran extends Model
         'no_service',
         'norekening',
         'kas',
+        'diskon',
+        'diskon_kecewa',
         'nominal',
         'dp',
         'keterangan_pembayaran',

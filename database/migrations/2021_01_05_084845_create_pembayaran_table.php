@@ -19,6 +19,8 @@ class CreatePembayaranTable extends Migration
             $table->foreignId('id_admin')->default(0);
             $table->string('norekening', 50)->nullable();
             $table->boolean('kas')->default(false);
+            $table->boolean('diskon')->default(0);
+            $table->string('diskon_kecewa')->nullable();
             $table->double('nominal', 15, 0)->default(0);
             $table->boolean('dp')->default(false);
             $table->string('keterangan_pembayaran')->nullable();
