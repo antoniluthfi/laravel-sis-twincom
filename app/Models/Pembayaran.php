@@ -40,6 +40,11 @@ class Pembayaran extends Model
         return $this->hasOne(ArusKas::class, 'no_service', 'no_service')->select('no_service', 'no_bukti', 'id_sandi')->with('transaksi');
     }
 
+    public function teknisi()
+    {
+        return $this->hasMany(TeknisiPj::class, 'no_service', 'no_service')->select('no_service', 'id_teknisi')->with('teknisi');
+    }
+
     public function pengerjaan()
     {
         return $this->hasOne(Pengerjaan::class, 'no_service', 'no_service')->select('no_service', 'biaya_service');

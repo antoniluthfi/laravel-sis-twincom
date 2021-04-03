@@ -18,7 +18,7 @@ class PembayaranController extends Controller
 
     public function getDataById($no_pembayaran)
     {
-        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan')->where('no_pembayaran', $no_pembayaran)->first();
+        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan', 'teknisi')->where('no_pembayaran', $no_pembayaran)->first();
 
         if($pembayaran) {
             return response()->json([
@@ -35,7 +35,7 @@ class PembayaranController extends Controller
 
     public function getDataByNoService($no_service)
     {
-        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan')->where('no_service', $no_service)->first();
+        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan', 'teknisi')->where('no_service', $no_service)->first();
 
         if($pembayaran) {
             return response()->json([
@@ -52,7 +52,7 @@ class PembayaranController extends Controller
 
     public function getDataByCabang($cabang)
     {
-        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan')->where('cabang', $cabang)->get();
+        $pembayaran = Pembayaran::with('penerimaan', 'arusKas', 'admin', 'pengerjaan', 'teknisi')->where('cabang', $cabang)->get();
 
         if($pembayaran) {
             return response()->json([
