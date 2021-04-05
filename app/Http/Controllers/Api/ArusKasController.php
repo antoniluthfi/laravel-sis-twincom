@@ -165,8 +165,10 @@ class ArusKasController extends Controller
 
     public function deleteForPembayaran($no_pembayaran)
     {
-        $arusKas = ArusKas::where('no_pembayaran', $no_pembayaran)->first();
-        $arusKas->delete();
+        $arusKas = ArusKas::where('no_pembayaran', $no_pembayaran)->get();
+        for ($i = 0; $i < count($arusKas); $i++) { 
+            $arusKas[$i]->delete();
+        }
         
         return response()->json([
             'status' => 'OK',
