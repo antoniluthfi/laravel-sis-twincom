@@ -10,7 +10,7 @@ for ($i = 0; $i < count($data); $i++) {
 $dari = explode('-', $dari);
 $dari = $dari[2] . '-' . $dari[1] . '-' . $dari[0];
 
-if($sampai === 'x') {
+if($sampai == 'x') {
     $sampai = '';
 } else {
     $sampai = explode('-', $sampai);
@@ -79,21 +79,21 @@ if($sampai === 'x') {
             <tbody>
                 @for ($i = 0; $i < count($data); $i++)
                     @php
-                        if($data[$i]['cabang'] === 'Banjarbaru') {
+                        if($data[$i]['cabang'] == 'Banjarbaru') {
                             $no_service = "S.BJB." . $data[$i]->no_service;
-                        } elseif($data[$i]['cabang'] === 'Landasan Ulin') {
+                        } elseif($data[$i]['cabang'] == 'Landasan Ulin') {
                             $no_service = "S.LNU." . $data[$i]->no_service;
-                        } elseif($data[$i]['cabang'] === 'Banjarmasin') {
+                        } elseif($data[$i]['cabang'] == 'Banjarmasin') {
                             $no_service = "S.BJM." . $data[$i]->no_service;
                         }
 
-                        if($data[$i]->pengerjaan->status_pengerjaan === 3) {
+                        if($data[$i]->pengerjaan->status_pengerjaan == 3) {
                             $status = 'Selesai';
-                        } elseif($data[$i]->pengerjaan->status_pengerjaan === 2) {
+                        } elseif($data[$i]->pengerjaan->status_pengerjaan == 2) {
                             $status = 'Sedang Dikerjakan';
-                        } elseif($data[$i]->pengerjaan->status_pengerjaan === 1) {
+                        } elseif($data[$i]->pengerjaan->status_pengerjaan == 1) {
                             $status = 'Cancel';
-                        } elseif($data[$i]->pengerjaan->status_pengerjaan === 0) {
+                        } elseif($data[$i]->pengerjaan->status_pengerjaan == 0) {
                             $status = 'Belum Dikerjakan';
                         }          
                     @endphp
