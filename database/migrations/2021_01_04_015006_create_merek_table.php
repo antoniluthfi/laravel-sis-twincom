@@ -16,6 +16,7 @@ class CreateMerekTable extends Migration
         Schema::create('merek', function (Blueprint $table) {
             $table->id();
             $table->string('merek');
+            $table->string('kategori');
             $table->timestamps();
         });
     }
