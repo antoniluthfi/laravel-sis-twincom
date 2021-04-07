@@ -13,9 +13,5 @@ class Merek extends Model
 
     protected $fillable = [
         'merek',
-        'pc',
-        'laptop',
-        'cctv',
-        'printer'
     ];
 }

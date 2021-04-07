@@ -15,7 +15,7 @@ class CreateStikerTable extends Migration
     {
         Schema::create('stiker', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_stiker', 20);
+            $table->string('jenis_stiker', 35);
             $table->integer('jumlah');
             $table->string('cabang');
             $table->timestamps();

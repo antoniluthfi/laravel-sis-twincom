@@ -18,6 +18,9 @@ class CreateBarangJasaTable extends Migration
             $table->string('nama_bj');
             $table->tinyInteger('jenis');
             $table->boolean('form_data_penting');
+            $table->boolean('merek_dan_tipe');
+            $table->boolean('sn');
+            $table->boolean('stiker');
             $table->timestamps();
         });
     }

@@ -16,10 +16,6 @@ class CreateMerekTable extends Migration
         Schema::create('merek', function (Blueprint $table) {
             $table->id();
             $table->string('merek');
-            $table->boolean('pc');
-            $table->boolean('laptop');
-            $table->boolean('cctv');
-            $table->boolean('printer');
             $table->timestamps();
         });
     }

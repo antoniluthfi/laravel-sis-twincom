@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('alamat');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('nomorhp');
+            $table->string('nomorhp')->unique();
             $table->string('jabatan');
-            $table->string('cab_penempatan');
+            $table->string('cab_penempatan')->nullable();
             $table->tinyInteger('status_akun');
             $table->tinyInteger('online')->nullable();
             $table->boolean('shift')->default(false);

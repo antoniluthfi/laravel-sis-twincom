@@ -14,6 +14,9 @@ class BarangJasa extends Model
     protected $fillable = [
         'nama_bj',
         'jenis',
-        'form_data_penting'
+        'form_data_penting',
+        'merek_dan_tipe',
+        'sn',
+        'stiker'
     ];
 }
