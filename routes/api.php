@@ -34,6 +34,7 @@ use App\Http\Controllers\Api\ReviewKepuasanPelangganController;
 use App\Http\Controllers\Api\RMAController;
 use App\Http\Controllers\Api\MemberController;
 use App\Http\Controllers\Api\OneSignalController;
+use App\Http\Controllers\Api\FakturPenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +84,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('merek', [MerekController::class, 'index']);
     Route::get('merek/{id}', [MerekController::class, 'getDataById']);
     Route::get('merek/name/{name}', [MerekController::class, 'getDataByName']);
-    Route::get('merek/kategori/{kategori}', [MerekController::class, 'getDataByKategori']);
     Route::post('merek', [MerekController::class, 'create']);
     Route::put('merek/{id}', [MerekController::class, 'update']);
     Route::delete('merek/{id}', [MerekController::class, 'delete']);
@@ -177,6 +177,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'update']);
     Route::post('penerimaan-barang/upload-video/{no_service_penerimaan}', [PenerimaanBarangController::class, 'uploadVideo']);
     Route::delete('penerimaan-barang/{no_service_penerimaan}', [PenerimaanBarangController::class, 'delete']);
+
+    Route::get('faktur-penjualan', [FakturPenjualanController::class, 'index']);
+    Route::get('faktur-penjualan/{id}', [FakturPenjualanController::class, 'getDataById']);
+    Route::get('faktur-penjualan/no-service/{no_service}', [FakturPenjualanController::class, 'getDataByNoService']);
+    Route::post('faktur-penjualan', [FakturPenjualanController::class, 'create']);
+    Route::put('faktur-penjualan/{id}', [FakturPenjualanController::class, 'update']);
+    Route::delete('faktur-penjualan/{id}', [FakturPenjualanController::class, 'delete']);
 
     Route::get('pengerjaan', [PengerjaanController::class, 'index']);
     Route::get('pengerjaan/{no_pengerjaan}', [PengerjaanController::class, 'getDataById']);

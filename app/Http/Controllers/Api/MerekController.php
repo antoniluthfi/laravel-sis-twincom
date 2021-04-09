@@ -52,23 +52,6 @@ class MerekController extends Controller
         }
     }
 
-    public function getDataByKategori($kategori)
-    {
-        $merek = Merek::where(strtolower($kategori), '1')->get();
-
-        if($merek) {
-            return response()->json([
-                'status' => 'OK',
-                'data' => $merek
-            ], 200);
-        } else {
-            return response()->json([
-                'status' => 'OK',
-                'message' => 'Not Found'
-            ], 404);
-        }
-    }
-
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [

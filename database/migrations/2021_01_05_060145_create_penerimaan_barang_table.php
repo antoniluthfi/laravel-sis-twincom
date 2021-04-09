@@ -15,12 +15,12 @@ class CreatePenerimaanBarangTable extends Migration
     {
         Schema::create('penerimaan_barang', function (Blueprint $table) {
             $table->id('no_service_penerimaan');
-            $table->string('no_faktur_penjualan')->nullable();
             $table->string('jenis_penerimaan', 50);
             $table->foreignId('id_cabang');
             $table->foreignId('id_customer');
             $table->foreignId('id_bj');
             $table->foreignId('id_admin');
+            $table->foreignId('no_faktur')->nullable();
             $table->string('merek')->nullable();
             $table->string('tipe')->nullable();
             $table->string('sn')->nullable();
@@ -33,6 +33,7 @@ class CreatePenerimaanBarangTable extends Migration
             $table->string('keterangan')->nullable();
             $table->string('estimasi', 20);
             $table->boolean('status_garansi')->default(0);
+            $table->string('nama_garansi')->nullable();
             $table->integer('sisa_garansi')->nullable();
             $table->boolean('layanan')->default(false);
             $table->string('link_video')->nullable();

@@ -18,7 +18,7 @@ class PenerimaanBarangController extends Controller
 
     public function getDataById($no_service_penerimaan)
     {
-        $penerimaan = PenerimaanBarang::with('cabang', 'bj', 'admin', 'customer', 'teknisi', 'pengajuan', 'pengerjaan')->where('no_service_penerimaan', $no_service_penerimaan)->first();
+        $penerimaan = PenerimaanBarang::with('cabang', 'bj', 'admin', 'customer', 'teknisi', 'pengajuan', 'pengerjaan', 'fakturPenjualan')->where('no_service_penerimaan', $no_service_penerimaan)->first();
         return response()->json([
             'status' => 'OK',
             'data' => $penerimaan

@@ -19,6 +19,7 @@ class PenerimaanBarang extends Model
         'id_bj',
         'id_admin',
         'id_teknisi',
+        'no_faktur',
         'merek',
         'tipe',
         'sn',
@@ -30,6 +31,7 @@ class PenerimaanBarang extends Model
         'keterangan',
         'estimasi',
         'status_garansi',
+        'nama_garansi',
         'sisa_garansi',
         'layanan',
         'link_video',
@@ -86,5 +88,10 @@ class PenerimaanBarang extends Model
     public function ratingAdmin()
     {
         return $this->hasOne(ReviewKepuasanPelanggan::class, 'no_service', 'no_service_penerimaan');
+    }
+
+    public function fakturPenjualan()
+    {
+        return $this->hasOne(FakturPenjualan::class, 'no_service', 'no_service_penerimaan');
     }
 }
