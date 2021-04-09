@@ -120,14 +120,15 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users'
+            'email' => 'required|email|unique:users',
+            'nomorhp' => 'required|nomorhp|unique:users'
         ]);
 
         if($validator->fails()) {
             return response()->json([
-                'status' => 'Failed',
-                'message' => 'Data sudah ada'
-            ], 401);
+                'status' => 'Failed', 
+                'message' => 'Data sudah ada', 
+            ], 400);    
         }
 
         $input = $request->all();

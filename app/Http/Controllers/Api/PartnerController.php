@@ -54,7 +54,9 @@ class PartnerController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|unique:partner'
+            'nama' => 'required|nama|unique:partner',
+            'email' => 'required|email|unique:partner',
+            'nomorhp' => 'required|nomorhp|unique:partner',
         ]);
 
         if($validator->fails()) {

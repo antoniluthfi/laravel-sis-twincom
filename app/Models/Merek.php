@@ -13,6 +13,5 @@ class Merek extends Model
 
     protected $fillable = [
         'merek',
-        'kategori'
     ];
 }

@@ -18,7 +18,7 @@ class CreatePartnerTable extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('email')->unique();
-            $table->string('nomorhp');
+            $table->string('nomorhp')->unique();
             $table->boolean('status_akun')->default(false);
             $table->timestamps();
         });
