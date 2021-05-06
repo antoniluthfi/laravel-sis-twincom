@@ -92,6 +92,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('tipe/{id}', [TipeController::class, 'getDataById']);
     Route::get('tipe/name/{name}', [TipeController::class, 'getDataByName']);
     Route::get('tipe/merek/{merek}', [TipeController::class, 'getDataByMerek']);
+    Route::get('tipe/kategori/{kategori}', [TipeController::class, 'getDataByKategori']);
+    Route::get('tipe/kategori/{kategori}/merek/{merek}', [TipeController::class, 'getDataByMerekAndKategori']);
     Route::post('tipe', [TipeController::class, 'create']);
     Route::put('tipe/{id}', [TipeController::class, 'update']);
     Route::delete('tipe/{id}', [TipeController::class, 'delete']);

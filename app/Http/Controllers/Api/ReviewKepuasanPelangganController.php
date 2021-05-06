@@ -94,16 +94,17 @@ class ReviewKepuasanPelangganController extends Controller
             $review[$i]->delete();
         }
 
-        $input = $request->all();
-
         if(strpos($request->user_id, ",")) {
             $user_id = explode(",", $request->user_id);
             $input = $request->all();
 
+            $a = [];
             for ($i = 0; $i < count($user_id); $i++) { 
-                $user = User::select('id')->where('name', $user_id[$i])->first();
+                $user = User::select('id', 'jabatan', 'cab_penempatan')->where('name', $user_id[$i])->first();
                 
                 $input['user_id'] = $user['id'];
+                $input['jabatan'] = $user['jabatan'];
+                $input['cabang'] = $user['cab_penempatan'];
                 $review = ReviewKepuasanPelanggan::create($input);
             }
         } else {

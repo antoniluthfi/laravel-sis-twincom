@@ -69,6 +69,41 @@ class TipeController extends Controller
         }
     }
 
+    public function getDataByKategori($kategori)
+    {
+        $tipe = Tipe::where('kategori', $kategori)->get();
+
+        if($tipe) {
+            return response()->json([
+                'status' => 'OK',
+                'data' => $tipe
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'Failed',
+                'message' => 'Not Found'
+            ], 404);
+        }
+    }
+
+    public function getDataByMerekAndKategori($kategori, $merek)
+    {
+        $tipe = Tipe::where(['kategori' => $kategori, 'merek' => $merek])
+                    ->get();
+
+        if($tipe) {
+            return response()->json([
+                'status' => 'OK',
+                'data' => $tipe
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'Failed',
+                'message' => 'Not Found'
+            ], 404);
+        }
+    }
+
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
