@@ -53,9 +53,11 @@ class ReviewKepuasanPelangganController extends Controller
 
     public function create(Request $request)
     {
-        $review = ReviewKepuasanPelanggan::where('no_service', $no_service)->get();
-        for ($i = 0; $i < count($review); $i++) { 
-            $review[$i]->delete();
+        if($request->penerimaan_barang && $request->penerimaan_barang == true) {
+            $review = ReviewKepuasanPelanggan::where('no_service', $request->no_service)->get();
+            for ($i = 0; $i < count($review); $i++) { 
+                $review[$i]->delete();
+            }
         }
 
         if(strpos($request->user_id, ",")) {

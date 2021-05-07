@@ -84,7 +84,6 @@ $now = date("d-m-Y");
 
         <div class="float-left" style="width: 15%;">
             <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Tgl Penerimaan</p>
-            <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">No Faktur Penjualan</p>
 
             @if ($data->jenis_penerimaan === 'Jasa Lain-lain')
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Jasa</p>
@@ -93,6 +92,7 @@ $now = date("d-m-Y");
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
+                <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">No Faktur Penjualan</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Nama Barang</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Barang</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Catatan</p>
@@ -109,11 +109,13 @@ $now = date("d-m-Y");
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Serial Number</p>
                 <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Kelengkapan</p>   
             @endif
+
+            <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Permintaan</p>
+            <p class="lead ml-2 mt-0 mb-0" style="font-weight: bold; letter-spacing: 1.5px;">Estimasi Penyelesaian</p>
         </div>
 
         <div class="float-right" style="width: 85%;">
             <p class="lead ml-2 mt-0 mb-0">: {{ $tanggal }}</p>
-            <p class="lead ml-2 mt-0 mb-0">: {{ $data->no_faktur_penjualan }}</p>
 
             @if ($data->jenis_penerimaan === 'Jasa Lain-lain')
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
@@ -122,6 +124,7 @@ $now = date("d-m-Y");
             @endif
 
             @if ($data->jenis_penerimaan === 'Persiapan Barang Baru')
+                <p class="lead ml-2 mt-0 mb-0">: {{ $data->no_faktur }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->merek . ' '. $data->tipe }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
@@ -133,11 +136,14 @@ $now = date("d-m-Y");
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->barang_jasa }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ ucwords($data->problem) }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->keterangan }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ $data_penting }}</p>                
+                <p class="lead ml-2 mt-0 mb-0">: {{ $data_penting }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->kondisi }}</p>
                 <p class="lead ml-2 mt-0 mb-0">: {{ $data->sn }}</p>
-                <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>          
+                <p class="lead ml-2 mt-0 mb-0">: {{ $data->kelengkapan }}</p>
             @endif
+
+            <p class="lead ml-2 mt-0 mb-0">: {{ $data->permintaan }}</p>
+            <p class="lead ml-2 mt-0 mb-0">: {{ $data->estimasi }}</p>
         </div>
     </div>
 
@@ -166,12 +172,12 @@ $now = date("d-m-Y");
             
             <div class="float-left" style="width: 32%">
                 <p class="lead text-center mt-0 mb-5">Diserahkan</p>
-                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->admin) }}</p>
+                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->customer) }}</p>
             </div>
             
             <div class="float-left" style="width: 32%">
                 <p class="lead text-center mt-0 mb-5">Diterima</p>
-                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->customer) }}</p>
+                <p class="lead text-center mt-0 mb-1">{{ ucwords($data->admin) }}</p>
             </div>
 
             <div class="float-left" style="width: 32%">
