@@ -184,8 +184,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('faktur-penjualan/{id}', [FakturPenjualanController::class, 'getDataById']);
     Route::get('faktur-penjualan/no-service/{no_service}', [FakturPenjualanController::class, 'getDataByNoService']);
     Route::post('faktur-penjualan', [FakturPenjualanController::class, 'create']);
-    Route::put('faktur-penjualan/{id}', [FakturPenjualanController::class, 'update']);
-    Route::delete('faktur-penjualan/{id}', [FakturPenjualanController::class, 'delete']);
+    Route::put('faktur-penjualan/{no_service}', [FakturPenjualanController::class, 'update']);
+    Route::delete('faktur-penjualan/{no_service}', [FakturPenjualanController::class, 'delete']);
 
     Route::get('pengerjaan', [PengerjaanController::class, 'index']);
     Route::get('pengerjaan/{no_pengerjaan}', [PengerjaanController::class, 'getDataById']);

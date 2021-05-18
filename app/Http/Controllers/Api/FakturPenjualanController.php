@@ -48,10 +48,10 @@ class FakturPenjualanController extends Controller
         ], 200);
     }
 
-    public function update(Request $request, $no_faktur)
+    public function update(Request $request, $no_service)
     {
         $input = $request->all();
-        $fakturPenjualan = FakturPenjualan::where('no_faktur', $no_faktur)->first();
+        $fakturPenjualan = FakturPenjualan::where('no_service', $no_service)->first();
         $fakturPenjualan->fill($input)->save();
 
         return response()->json([
@@ -61,9 +61,9 @@ class FakturPenjualanController extends Controller
         ], 200);
     }
 
-    public function delete($no_faktur)
+    public function delete($no_service)
     {
-        $fakturPenjualan = FakturPenjualan::where('no_faktur', $no_faktur)->first();
+        $fakturPenjualan = FakturPenjualan::where('no_service', $no_service)->first();
         $fakturPenjualan->delete();
 
         return response()->json([
